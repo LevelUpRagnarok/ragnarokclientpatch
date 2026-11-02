@@ -2,7 +2,7 @@
 Dosya Yolu: REPO_ROOT/README.md
 Amac: Ragnar Ragnarok Online istemci patch artifactlerini public olarak dagitmak
 Modul - Markdown
-Version: 1.0.2
+Version: 1.0.3
 Aciklama: Yeni organizasyonun kanonik URL'leri ve kilitli 2022 dagitim siniri
 Bagimli Oldugu Katman: Documentation
 -->
@@ -60,7 +60,10 @@ eski `b1glord` ve yeni `LevelUpRagnarok` raw adreslerinden `plist.txt`,
 `2015/plist.txt`, `data/custom-cursor.thor` ve
 `2015/data/custom-cursor.thor` dosyalarini HTTP 200 ile indirdi.
 Dort dosyanin SHA-256 degerleri her iki adreste de ayniydi.
-Bu deneme tum 26 THOR'un online testi veya Windows launcher smoke degildir.
+2026-10-30 sonraki [alti dosyali GET+SHA testinde](https://github.com/LevelUpRagnarok/ragnarokclientpatch/actions/runs/41080318821),
+ayrica `data/custom-maps01.thor` ile `2015/data/custom-maps01.thor`
+(her biri 8.791.873 bayt) eski ve yeni URL'lerden ayni SHA-256 ile indirildi.
+Tum 26 THOR'un online indirilmesi ve gerçek Windows oyun patcher smoke **NOT RUN**.
 
 Kurulu istemcide onceden kayitli URL, burada bir template degisince otomatik
 guncellenmez. Yeni konfigurasyonu oyuncuya dagitmadan once izole 2015 istemcide
@@ -72,3 +75,16 @@ altinda takip edilmektedir.
 `2022/channel.json.ready=false` ve
 `2022/beam/channel-policy.json.publish_allowed=false` tutulur.
 Bu sahiplik duzeltmesi bir release veya patch yayin izni degildir.
+
+## Ragnar kurulum EXE - public QA
+
+Turkuaz temali Ragnar kurulumunun **oyun client'i icermeyen, preview-only**
+Windows test artifacti, pinlenmis `LevelUpRagnarok/beam-patcher`
+kaynak commit'inden ve bu public depodaki
+[Public Ragnar Installer QA](.github/workflows/public-ragnar-installer-qa.yml)
+akisi ile uretilir. `installer/qa/README.md` ek teknik ayrintilari tutar.
+
+Bu QA akisi private `LevelUpRagnarok/RagnarokClient` reposunu cekmez,
+oyuncu client'i dagitmaz, `2022/beam` kanalini acmaz ve GitHub Release
+olusturmaz. Test artifactlari gecicidir; gercek Windows oyun patcher
+guncelleme/rollback ve oyuncu GUI kabulu **NOT RUN**.
