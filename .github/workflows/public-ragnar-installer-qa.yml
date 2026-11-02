@@ -1,0 +1,56 @@
+# Dosya Yolu: .github/workflows/public-ragnar-installer-qa.yml
+# Amac: Ragnar preview Windows installer test artifactini dogrudan public dagitim deposunda uretmek
+# Modul - GitHub Actions YAML
+# Version: 1.2.3-qa
+# Aciklama: Tam olarak pinli public Beam kaynak commitinden build; private client'a baglanmaz
+# Bagimli Oldugu Katman: LevelUpRagnarok/beam-patcher reusable QA workflow | Public distribution
+
+name: Public Ragnar Installer QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/public-beam-installer-qa-20261024
+      - integration/public-distribution-and-installer-20261102
+    paths:
+      - ".github/workflows/public-ragnar-installer-qa.yml"
+      - "installer/qa/**"
+      - "tests/test_public_installer_contract.py"
+  pull_request:
+    paths:
+      - ".github/workflows/public-ragnar-installer-qa.yml"
+      - "installer/qa/**"
+      - "tests/test_public_installer_contract.py"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-ragnar-installer-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Keep reserved channels immutable
+        run: |
+          python3 -B 2022/beam/check_reserved_channel.py --root .
+          python3 -B -m unittest discover -s 2022/beam/tests -p test_reserved_channel.py -v
+      - name: Verify public installer provenance and scope
+        run: python3 -B -m unittest discover -s tests -p test_public_installer_contract.py -v
+
+  public-installer-qa:
+    needs: contract
+    permissions:
+      contents: read
+    # Immutable trusted public source. The caller's actions artifact lives
+    # in LevelUpRagnarok/ragnarokclientpatch, not in the source or private client repo.
+    uses: LevelUpRagnarok/beam-patcher/.github/workflows/ragnar-turkuaz-installer-qa.yml@536c155af23c0528edfdbe88ef1c54215ae74bdf
+    with:
+      source_ref: 536c155af23c0528edfdbe88ef1c54215ae74bdf
