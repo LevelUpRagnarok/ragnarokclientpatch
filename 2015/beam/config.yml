@@ -1,7 +1,7 @@
-# 📄 Dosya Yolu: /patcher/beam/config.template.yml
+# Dosya Yolu: REPO_ROOT/2015/beam/config.yml
 # 📌 Amac: Beam Patcher icin Ragnar Ragnarok Online ve ortak THOR dagitim kanalini tanimlamak
 # 📌 Patcher - YAML
-# Version: 1.0.0
+# Version: 1.0.1
 # Aciklama: Beam ilk fazda mevcut THOR paketlerini kullanir, native BEAM formati opsiyonel kanal olarak saklanir
 # Bagimli Oldugu Katman: Tool | View
 
@@ -26,9 +26,9 @@ app:
 patcher:
   mirrors:
     - name: "Ragnar Primary"
-      url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2015/data"
+      url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2015/data"
       priority: 1
-  patch_list_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2015/beam/patchlist.txt"
+  patch_list_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2015/beam/patchlist.txt"
   target_grf: "ragnardata.grf"
   allow_manual_patch: true
   verify_checksums: true
@@ -58,7 +58,7 @@ sso:
 
 updater:
   enabled: false
-  check_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2015/beam/version.json"
-  update_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2015/beam/updates"
+  check_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2015/beam/version.json"
+  update_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2015/beam/updates"
   auto_update: false
 

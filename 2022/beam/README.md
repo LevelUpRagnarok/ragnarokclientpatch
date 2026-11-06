@@ -1,3 +1,12 @@
+<!--
+Dosya Yolu: REPO_ROOT/2022/beam/README.md
+Amac: 20220406 BEAM yayin kilidi ve sahiplik sinirlarini belgelendirir
+Modul - Markdown
+Version: 0.1.1-candidate
+Aciklama: Kanonik source ve builder repo baglantilari
+Bagimli Oldugu Katman: Documentation
+-->
+
 # 20220406 Beam Patcher — reserved channel (NOT LIVE)
 
 This folder reserves the future **2022 / Beam v1** patch feed. It is **not**
@@ -9,9 +18,9 @@ or release manifest are authorized.
 
 ## Ownership and file layout
 
-- Source of truth: `LevelUpGT/RagnarokClient/maps/data/<dungeon>/`.
+- Source of truth: `LevelUpRagnarok/RagnarokClient/maps/data/<dungeon>/`.
   SHA-256 catalog: `RagnarokClient/maps/manifest.json`.
-- Offline candidate builder and BEAM v1 format: `LevelUpGT/beam-patcher`.
+- Offline candidate builder and BEAM v1 format: `LevelUpRagnarok/beam-patcher`.
 - Public distribution (this repository): **approved output only**, in
   `2022/data/<approved>.beam`; feed is `2022/beam/patchlist.txt`.
 - Proposed client GRF target: `tdata1.grf` (not an archive header field).

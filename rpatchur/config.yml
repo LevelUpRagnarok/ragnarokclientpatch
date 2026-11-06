@@ -1,8 +1,8 @@
-# 📄 Dosya Yolu: /patcher/rpatchur/config.template.yml
+# Dosya Yolu: REPO_ROOT/rpatchur/config.yml
 # 📌 Amac: RPatchur icin Ragnar Ragnarok Online marka, executable ve remote THOR dagitim ayarlarini sablon olarak tanimlamak
 # 📌 Patcher - YAML
-# Version: 1.0.0
-# Aciklama: Public patch dagitim URL'si deployment sirasinda https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main placeholderi ile doldurulur
+# Version: 1.0.1
+# Aciklama: Public patch dagitim URL'si deployment sirasinda https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main placeholderi ile doldurulur
 # Bagimli Oldugu Katman: Tool | View
 
 window:
@@ -22,12 +22,12 @@ setup:
   exit_on_success: false
 
 web:
-  index_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/rpatchur/index.html"
+  index_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/rpatchur/index.html"
   preferred_patch_server: "Ragnar Primary"
   patch_servers:
     - name: "Ragnar Primary"
-      plist_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/plist.txt"
-      patch_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/data/"
+      plist_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/plist.txt"
+      patch_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/data/"
 
 client:
   default_grf_name: "ragnardata.grf"

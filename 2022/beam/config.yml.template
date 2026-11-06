@@ -1,15 +1,10 @@
-# DOSYA YOLU: 2022/beam/config.yml.template
-# AMAC: 20220406 BEAM channel candidate configuration, deliberately NOT runnable
-# MODULE: YAML example (never copy to config.yml before EXE+GRF audit)
-# VERSION: 0.1.0-candidate
-# Not a published player config; channel ready=false, no target GRF or EXE identity.
-
-# 📄 Dosya Yolu: /patcher/beam/config.template.yml
-# 📌 Amac: Beam Patcher icin Ragnar Ragnarok Online ve ortak THOR dagitim kanalini tanimlamak
-# 📌 Patcher - YAML
-# Version: 1.0.0
-# Aciklama: Beam ilk fazda mevcut THOR paketlerini kullanir, native BEAM formati opsiyonel kanal olarak saklanir
-# Bagimli Oldugu Katman: Tool | View
+# Dosya Yolu: REPO_ROOT/2022/beam/config.yml.template
+# Amac: 20220406 BEAM icin kasitli olarak calismayan kanal sablonu
+# Modul - YAML Template
+# Version: 0.1.1-candidate
+# Aciklama: Kanonik URL'ler guncel; EXE SHA ve yayin izni henuz dogrulanmadi
+# Bagimli Oldugu Katman: Config
+# NOT RUNNABLE: 2022 yayin kanali kapali kalir.
 
 app:
   name: "Ragnar Ragnarok Online"
@@ -32,9 +27,9 @@ app:
 patcher:
   mirrors:
     - name: "Ragnar Primary"
-      url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2022/data"
+      url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2022/data"
       priority: 1
-  patch_list_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2022/beam/patchlist.txt"
+  patch_list_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2022/beam/patchlist.txt"
   target_grf: "tdata1.grf"
   allow_manual_patch: false
   verify_checksums: true
@@ -71,7 +66,7 @@ sso:
 
 updater:
   enabled: false
-  check_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2022/beam/version.json"
-  update_url: "https://raw.githubusercontent.com/b1glord/ragnarokclientpatch/main/2022/beam/updates"
+  check_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2022/beam/version.json"
+  update_url: "https://raw.githubusercontent.com/LevelUpRagnarok/ragnarokclientpatch/main/2022/beam/updates"
   auto_update: false
 
