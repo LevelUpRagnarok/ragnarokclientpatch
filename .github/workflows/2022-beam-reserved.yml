@@ -1,3 +1,9 @@
+# Dosya Yolu: REPO_ROOT/.github/workflows/2022-beam-reserved.yml
+# Amac: 2022 BEAM yayin kilidini tum PR degisikliklerinde dogrulamak
+# Modul - GitHub Actions YAML
+# Version: 1.0.0
+# Aciklama: Yalnizca salt-okunur guard; yayinlama, paket yukleme veya etiket olusturma yok
+# Bagimli Oldugu Katman: Tool
 # 2022 Beam candidate distribution: BLOCK accidental release.
 # Never uploads, publishes, tags, or alters 2015 compatibility aliases.
 name: 2022 Beam Reserved Channel Guard
@@ -7,10 +13,8 @@ on:
     paths:
       - "2022/**"
       - ".github/workflows/2022-beam-reserved.yml"
-  pull_request:
-    paths:
-      - "2022/**"
-      - ".github/workflows/2022-beam-reserved.yml"
+  # Must run for every PR to be eligible for branch-protection required checks.
+  pull_request: {}
   workflow_dispatch:
 
 permissions:
@@ -28,3 +32,5 @@ jobs:
         run: python3 -B 2022/beam/check_reserved_channel.py --root .
       - name: Test fail-closed channel contract
         run: python3 -B -m unittest discover -s 2022/beam/tests -p 'test_reserved_channel.py' -v
+      - name: Verify all-PR guard trigger and read-only workflow permissions
+        run: python3 -B -m unittest discover -s 2022/beam/tests -p 'test_reserved_workflow_policy.py' -v
